@@ -1,4 +1,4 @@
 # Lancé par Git avant chaque commit : si une commande échoue, le commit est refusé.
 npx biome check --staged --no-errors-on-unmatched
+node tools/gitleaks.ts staged
 npm test
-# TODO TP 3 : chercher des secrets dans les fichiers indexés : node tools/gitleaks.ts staged

@@ -1,0 +1,4 @@
+# Fuite connue : la clé du service d'e-mail, commitée le 10/09 puis retirée du code.
+# La clé a été révoquée et remplacée chez le fournisseur : cette alerte est traitée.
+# Format : commit:fichier:règle:ligne (l'empreinte affichée par gitleaks)
+871ccc570e6a5707398574d760120640114e7370:src/config.ts:generic-api-key:3

@@ -1,0 +1,11 @@
+# Dependabot propose une pull request quand une dépendance a une nouvelle version (ou une faille corrigée)
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

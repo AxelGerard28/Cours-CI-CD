@@ -2,6 +2,7 @@ import { createRequire } from "node:module";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import express, { type NextFunction, type Request, type Response } from "express";
+import helmet from "helmet";
 import { InvalidCart, quote } from "./domain/cart.ts";
 import { allProducts, findProduct } from "./domain/catalog.ts";
 import { findOrder, InvalidOrder, placeOrder } from "./domain/order.ts";
@@ -13,9 +14,8 @@ const require = createRequire(import.meta.url);
 
 export function createApp() {
   const app = express();
-  // TODO TP 3 : les en-têtes de sécurité HTTP. npm install helmet, import helmet from "helmet", puis :
-  //   app.use(helmet({ contentSecurityPolicy: { directives: { upgradeInsecureRequests: null } } }));
-  // (upgradeInsecureRequests: null, car l'application tourne en HTTP sur votre poste)
+  // En-têtes de sécurité HTTP (CSP, X-Frame-Options…). Le HTTPS est géré par l'hébergeur, pas par l'application.
+  app.use(helmet({ contentSecurityPolicy: { directives: { upgradeInsecureRequests: null } } }));
   app.use(express.json());
 
   app.get("/health", (_req, res) => {
